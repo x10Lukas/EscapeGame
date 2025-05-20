@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExitGame", "ExitGame.csproj", "{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C336C767-D7A7-489D-B3FA-B245ACCDDA67}
+	EndGlobalSection
+EndGlobal
