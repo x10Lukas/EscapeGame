@@ -19,6 +19,8 @@ namespace ExitGame
             public string VersteckteBuchstaben { get; set; }
             public bool IstGefunden { get; set; }
             public string Hinweis { get; set; }
+            public string Raetsel { get; set; }
+            public string RaetselAntwort { get; set; }
         }
 
         public static List<Raum> InitializeRooms()
@@ -27,26 +29,42 @@ namespace ExitGame
             {
                 new Raum { 
                     BahnNummer = 1, 
-                    VersteckteBuchstaben = "km", 
-                    Hinweis = "Schaue unter dem Sitz in der ersten Reihe.",
+                    VersteckteBuchstaben = "ERT", 
+                    Hinweis = "Ein Rätsel versperrt dir den Weg zu den Buchstaben...",
+                    Raetsel = "Was ist 15 + 27?",
+                    RaetselAntwort = "42",
                     IstGefunden = false
                 },
                 new Raum { 
                     BahnNummer = 2, 
-                    VersteckteBuchstaben = "us", 
-                    Hinweis = "Die Buchstaben sind an der Decke versteckt.",
+                    VersteckteBuchstaben = "ALB", 
+                    Hinweis = "Die Buchstaben sind hinter einem Zahlencode versteckt...",
+                    Raetsel = "Wie viele Minuten hat eine Stunde?",
+                    RaetselAntwort = "60",
                     IstGefunden = false
                 },
                 new Raum { 
                     BahnNummer = 3, 
-                    VersteckteBuchstaben = "ln", 
-                    Hinweis = "Überprüfe die Notbremse.",
+                    VersteckteBuchstaben = "STE", 
+                    Hinweis = "Ein physikalisches Rätsel blockiert deinen Zugang...",
+                    Raetsel = "Welche Geschwindigkeit hat Licht? (in km/s, ohne Punkte)",
+                    RaetselAntwort = "300000",
                     IstGefunden = false
                 },
                 new Raum { 
                     BahnNummer = 4, 
-                    VersteckteBuchstaben = "eo", 
-                    Hinweis = "Sieh durch das letzte Fenster.",
+                    VersteckteBuchstaben = "EIN", 
+                    Hinweis = "Das letzte Rätsel wartet auf dich...",
+                    Raetsel = "In welchem Jahr wurde die Relativitätstheorie veröffentlicht?",
+                    RaetselAntwort = "1905",
+                    IstGefunden = false
+                },
+                new Raum { 
+                    BahnNummer = 5, 
+                    VersteckteBuchstaben = "IN", 
+                    Hinweis = "Ein mathematisches Rätsel versperrt den Weg...",
+                    Raetsel = "Was ist 8 × 7?",
+                    RaetselAntwort = "56",
                     IstGefunden = false
                 }
             };

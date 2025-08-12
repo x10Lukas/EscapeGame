@@ -12,27 +12,32 @@ namespace BFT32_Escape_Game
         public static void ShowGameMenu(List<string> foundLetters, List<Lager.Raum> rooms)
         {
             Console.Clear();
+            Console.WriteLine("═══════════════════════════════════════════════");
+            Console.WriteLine("            U-BAHN ESCAPE GAME");
+            Console.WriteLine("═══════════════════════════════════════════════");
             Console.WriteLine("\nDu bist in der U-Bahn gefangen!");
-            Console.WriteLine("Gefundene Buchstaben: " + string.Join("", foundLetters));
+            Console.WriteLine($"Gefundene Buchstaben: {string.Join(" | ", foundLetters)}");
+            Console.WriteLine($"Fortschritt: {foundLetters.Count}/5 Buchstabengruppen");
             Console.WriteLine("\nVerfügbare Bahnen:");
             
             for (int i = 0; i < rooms.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Bahn {rooms[i].BahnNummer}" + 
-                    (rooms[i].IstGefunden ? " (Buchstaben bereits gefunden)" : ""));
+                string status = rooms[i].IstGefunden ? "(Buchstaben gefunden)" : "(Rätsel ungelöst)";
+                Console.WriteLine($"{i + 1}. Bahn {rooms[i].BahnNummer} {status}");
             }
             
-            if (foundLetters.Count == 4)
+            Console.WriteLine();
+            if (foundLetters.Count == 5)
             {
-                Console.WriteLine("\n5. Rätsel lösen");
+                Console.WriteLine("6. FINALES RÄTSEL LÖSEN (Alle Buchstaben gefunden!)");
             }
             else
             {
-                Console.WriteLine("\n5. Rätsel lösen (noch nicht verfügbar)");
+                Console.WriteLine($"6. Finales Rätsel (Noch {5 - foundLetters.Count} Buchstabengruppen fehlen)");
             }
-            Console.WriteLine("6. Zurück zum Hauptmenü");
+            Console.WriteLine("7. Zurück zum Hauptmenü");
             
-            Console.Write("\nWähle eine Option: ");
+            Console.Write("\nWähle eine Option (1-7): ");
         }
 
         public static void HandleChoice(string choice, List<Lager.Raum> rooms, List<string> foundLetters)
@@ -43,16 +48,26 @@ namespace BFT32_Escape_Game
                 case "2":
                 case "3":
                 case "4":
-                    Spiel.HandleBahn(int.Parse(choice), rooms, foundLetters);
-                    break;
                 case "5":
-                    Spiel.HandleLoesungswort(foundLetters);
+                    int roomIndex = int.Parse(choice) - 1;
+                    if (roomIndex < rooms.Count)
+                    {
+                        Spiel.HandleBahn(int.Parse(choice), rooms, foundLetters);
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nUngültige Bahn-Nummer!");
+                        Console.ReadKey();
+                    }
                     break;
                 case "6":
+                    Spiel.HandleLoesungswort(foundLetters);
+                    break;
+                case "7":
                     Spiel.Beenden();
                     break;
                 default:
-                    Console.WriteLine("\nUngültige Auswahl. Bitte versuchen Sie es erneut.");
+                    Console.WriteLine("\nUngültige Auswahl. Bitte wähle eine Zahl zwischen 1 und 7.");
                     Console.ReadKey();
                     break;
             }
